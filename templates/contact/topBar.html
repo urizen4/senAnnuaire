@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}SenAnnuaire{% endblock %}
+
+{% block body %}
+<div class="navbar-fixed">
+    <nav class="blue darken-3">
+        <div class="nav-wrapper">
+            <div class="container">
+        <a href="#" class="brand-logo center" style="font-family: papyrus;
+         font-weight:bold;">SenAnnuaire</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large right">
+            <i class="material-icons tooltipped"  data-position="bottom" data-tooltip="MENU">menu</i>
+        </a>
+        </div>
+    </div>
+</div>
+    <ul class="sidenav grey darken-3 white-text" id="mobile-demo">
+        <div>
+        <li class="blue darken-3">
+               <div class="user-view">
+                   <a href="#">
+                       <i class="material-icons grey-text text-lighten-3 large">supervisor_account</i>
+                    <!-- <img src="public/image/person3.jpg" alt="" class="circle"> -->
+                    </a>
+                    <a href="">
+                        <span class="name grey-text text-lighten-3">
+                            HexaDec4
+                        </span>
+                    </a>
+                    <a href="">
+                        <span class="email grey-text text-lighten-3">  
+                            HD4@gmail.com
+                        </span>
+                    </a>
+               </div>
+              </li>
+            </div>
+              <li>
+                <div class="divider grey darken-3 "></div>
+             </li>
+             <li>
+                <a href="{{path('contact')}}" class="white-text hoverable">
+                   <i class="material-icons blue-text ">dashboard</i>
+                   Tableau de bord
+                 </a>
+               </li>
+               <li>
+                <a href="/"  class="waves-effect white-text hoverable">
+                    <i class="material-icons blue-text">logout</i>
+                     Déconnexion
+                </a>
+             </li>
+    </ul>
+
+{% endblock %}

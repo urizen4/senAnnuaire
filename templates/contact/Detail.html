@@ -1,0 +1,28 @@
+{% extends "/base.html" %}
+{% block title %}SenAnnuaire{% endblock %}
+{% block body %}
+
+{% include "contact/topBar.html" %}
+<div class="container">
+  <div class="card-panel transparent">
+      <span class="card-title center"><H3>Detail d'un contact</H3></span>
+      <h2 class="center blue-text text-darken-3">{{Date}}</h2>
+      <hr>
+      <div class="blue-text text-darken-3">
+      <h5>NOM:{{DetailCont.NOM}}</h5>
+      <h5>PRENOM:{{DetailCont.PRENOM}}</h5>
+      <h5>ADRESSE:{{DetailCont.ADRESSE}}</h5>
+      <h5>NUMERO TELEPHONE:{{DetailCont.TELEPHONE}}</h5>
+      <h5>EMAIL:{{DetailCont.EMAIL}}</h5>
+      <h5>DESCRIPTION:{{DetailCont.DESCRIPTION}}</h5>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur 
+      adipisicing elit. Tempora laboriosam sint 
+      ea corporis vero ducimus, ipsa consequuntur
+       dicta, tenetur, quam repudiandae aspernatur 
+       impedit minima voluptatum iusto perspiciatis 
+       reiciendis fuga deserunt. Atque, obcaecati adipisci
+       consectetur eveniet saepe dolorum tempore assumenda laboriosam?</p>
+  </div>
+</div>
+{% endblock body %}

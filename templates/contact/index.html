@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}SenAnnuaire{% endblock %}
+{% block body %}
+{% include "/contact/topBar.html" %}
+ <div class="grey darken-3" style="padding-top: 1px; padding-bottom:5px;">
+   <div class="row">
+         <h3   class="center grey-text col s6" 
+             style="font-family:papyrus;font-weight:bold">
+              Welcome To SenAnnuaire
+         </h3>
+         <form action="" method="POST" class="col s6 right">
+           <div class="row">
+           <div class="input-field col col s4">
+             <input type="text" name="search" id="search" 
+             placeholder="recherche par @email" class="grey-text text-lighten-1">
+              <label for=""><i class="material-icons blue-text">search</i></label>
+           </div>
+           <button type="submit" 
+           class="btn btn-floating blue darken-3 pulse tooltipped"
+            style="margin-top:18px;"
+             data-position="bottom" data-tooltip="recherche">
+             <i class="material-icons">search</i>
+            </button>
+          </div>
+         </form>
+        </div>
+ </div>
+  <div class="container">
+    <div class="card-panel transparent" style="border-radius: 10px;">
+      <span class="card-title blue-text text-darken-3"
+       style="font-family:papyrus;font-weight:bold">
+       <h3>Liste de vos contacts</h3>
+      </span>
+      <table class="table stripped responsive-table">
+        <thead class="blue-text text-darken-3" 
+        style="font-family:'TIME NEW ROMAN';font-weight:bold">
+          <th>NOM</th>
+          <th>PRENOM</th>
+          <th>ADRESSE</th>
+          <th>NUMERO TEL</th>
+          <th>EMAIL</th>
+          <th>ACTIONS</th>
+        </thead>
+        <tbody>
+          {% for C in Contact %}
+          <tr>
+            <td>{{C.NOM}}</td>
+            <td>{{C.PRENOM}}</td>
+            <td>{{C.ADRESSE}}</td>
+            <td>{{C.TELEPHONE}}</td>
+            <td>{{C.EMAIL}}</td>
+            <td>
+              <a href="{{path('details',{id:C.id})}}" class="tooltipped" data-position="bottom" data-tooltip="DETAIL"><i class="material-icons blue-text">visibility</i></a>
+              <a href="{{path('modifier',{id:C.id})}}" class="tooltipped" data-position="bottom" data-tooltip="MODIFIER"><i class="material-icons green-text">mode_edit</i></a>
+              <a href="{{path('delete',{id:C.id})}}" class="tooltipped" data-position="bottom" data-tooltip="SUPPRIMER"><i class="material-icons red-text">delete</i></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="blue-text text-darken-3">
+          <h3   class="center grey-text col s6" 
+             style="font-family:papyrus;font-weight:bold">
+             {{Contact1}}
+          </h3>
+        </div>
+    </div>
+  </div>
+  <!-- Le button fixe pour creer un contact -->
+  <div class="fixed-action-btn">
+    <a href="{{ path('Ajout') }}" 
+    class="btn-floating btn-large blue darken-3 tooltipped pulse" 
+    data-tooltip="AJOUTEZ UN CONTACT" data-position="top" >
+      <i class="material-icons">add</i>
+    </a>
+  </div>
+{% endblock %}

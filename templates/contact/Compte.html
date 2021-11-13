@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}SenAnnuaire{% endblock %}
+
+{% block body %}
+<div class="container">
+   {% if cool==1 %}
+    <div class="card-panel grey darken-3 center green-text" id="succes" style="border-radius: 70px;"><h4>{{ succes }}
+      <i class="material-icons green-text">done</i>
+    </h4>
+   </div>
+   {% endif %} 
+   {% if cool==2 %}
+     <div class="card-panel grey darken-3 red-text center" id="error" style="border-radius: 70px;"><h4>{{ error }}
+        <i class="material-icons red-text">error</i>
+      </h4></div> 
+   {% endif %}
+    <div class="row">
+ <div class="card-panel transparent">
+    <span class="card-title"><h2 class="center blue-text text-darken-3"
+        style="font-family: papyrus; font-weight:bold;">
+        Créer un compte
+    </h2>
+</span>
+     <form action="" method="post">
+               <div class="row">
+                 <div class="input-field col s6">
+                 <i class="material-icons prefix blue-text text-darken-3">person</i>
+                    <input type="text" id="nom" name="nom" required>
+                    <label for="nom">nom</label>
+                 </div>
+                 <div class="input-field col s6">
+                 <i class="material-icons prefix blue-text text-darken-3">person</i>
+                    <input type="text" id="prenom" name="prenom" required>
+                    <label for="prenom">prenom</label>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="input-field col s6">
+                 <i class="material-icons prefix blue-text text-darken-3">mail</i>
+                    <input type="email" id="mail" name="mail" required>
+                    <label for="mail">Email</label>
+                 </div>
+                 <div class="input-field col s6">
+                 <i class="material-icons prefix blue-text text-darken-3">home</i>
+                    <input type="text" id="adresse" name="adresse" required>
+                    <label for="adresse">Adresse</label>
+                 </div>
+               </div>
+                 <div class="row">
+                 <div class="input-field col s12">
+                 <i class="material-icons prefix blue-text text-darken-3">phone</i>
+                    <input type="number" id="telephone" name="telephone" required>
+                    <label for="telephone">Telephone</label>
+                 </div>
+                  </div>
+                  <div class="row">
+                     <div class="input-field col s6">
+                     <i class="material-icons prefix blue-text text-darken-3">lock</i>
+                     <input type="password" id="password1" name="pass1" required>
+                    <label for="password">Password</label>
+                     </div>
+                     <div class="input-field col s6">
+                     <i class="material-icons prefix blue-text text-darken-3">lock</i>
+                     <input type="password" id="password2" name="pass2" required>
+                    <label for="password">Confirmation</label>
+                     </div>
+                  </div>
+                   <div class="center" >
+                    <button type="reset" class="btn red darken-3 waves-effect waves-red" style="margin-bottom: 20px;">ANNULER</button>
+                    <button type="submit" class="btn blue darken-3 waves-effect waves-cyan"  style="margin-bottom: 20px;">VALIDER</button>
+                   </div>
+             </form>
+   </div>
+ </div>
+ </div>
+
+{% endblock %}

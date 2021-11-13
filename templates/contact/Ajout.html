@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}SenAnnuaire{% endblock %}
+{% block body %}
+{% include "contact/topBar.html" %}
+
+<h3   class="center blue-text text-darken-3" 
+      style="font-family:papyrus;font-weight:bold">
+     Ajoutez Un Contact
+</h3>
+    <div class="container">
+  {% if cool==2 %}
+      <div class="card-panel grey darken-3 red-text center" id="error" style="border-radius: 70px;">
+        <h3>
+          {{ error }}
+        <i class="material-icons red-text medium">error</i>
+       </h3>
+    </div> 
+  {% endif %} 
+      {{ form_start(formContact) }}
+       <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix blue-text text-darken-3">person</i> 
+            {{ form_widget(formContact.NOM) }}
+            <div class="red-text">
+              {{form_errors(formContact.NOM)}}
+             </div>
+            <label for="nom"  style="font-family:papyrus;font-weight:bold" class="black-text">Nom</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix blue-text text-darken-3">person</i> 
+           {{ form_widget(formContact.PRENOM) }}
+           <div class="red-text">
+            {{form_errors(formContact.PRENOM)}}
+           </div>
+            <label for="prenom"  style="font-family:papyrus;font-weight:bold" class="black-text">Prénom</label>
+          </div>
+       </div>
+       <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix blue-text text-darken-3">home</i> 
+            {{ form_widget(formContact.ADRESSE) }}
+            <div class="red-text">
+              {{form_errors(formContact.ADRESSE)}}
+             </div>
+            <label for="nom"  style="font-family:papyrus;font-weight:bold" 
+            class="black-text">Adresse</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix blue-text text-darken-3">phone</i> 
+           {{ form_widget(formContact.TELEPHONE) }}
+           <div class="red-text">
+             {{form_errors(formContact.TELEPHONE)}}
+            </div>
+            <label for="nom"  style="font-family:papyrus;font-weight:bold"
+             class="black-text">Telephone</label>
+          </div>
+       </div>
+       <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix blue-text text-darken-3">mail</i> 
+           {{ form_widget(formContact.EMAIL) }}
+           <div class="red-text">
+            {{form_errors(formContact.EMAIL)}}
+           </div>
+            <label for="nom"  style="font-family:papyrus;font-weight:bold"
+             class="black-text">Email</label>
+          </div>
+       </div>
+       <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix blue-text text-darken-3">list</i> 
+            {{ form_row(formContact.DESCRIPTION,{'attr':{'class':"materialize-textarea"}}) }}
+            <div class="red-text">
+              {{form_errors(formContact.DESCRIPTION)}}
+             </div>
+            <label for="nom"  style="font-family:papyrus;font-weight:bold" 
+            class="black-text">text</label>
+          </div>
+       </div>
+       <div class="center">
+       <button type="reset" class="btn red darken-3 waves-effect waves-light">
+        <i class="material-icons">cancel</i> 
+         Annuler
+        </button>
+        {% if statut==true %}
+           <button type="submit" class="btn blue darken-3 waves-effect waves-light">
+           <i class="material-icons">done</i> 
+           Valider
+          </button>
+        {% endif %}
+        {% if statut==false %}
+           <button type="submit" class="btn green darken-3 waves-effect waves-light">
+           <i class="material-icons">mode_edit</i> 
+           Modifier
+          </button>
+        {% endif %}
+       </div>
+     {{ form_end(formContact) }}
+    </div>
+{% endblock %}
